@@ -31,7 +31,7 @@ void main(int argc ,char * args[])
      temp2 = fgetc(fo);
      if(temp1 == EOF && temp2 == EOF)
      {
-     	printf("%s is same as  %s\n",args[1],args[2]);
+     	printf("%s is same as %s\n",args[2],args[1]);
      	break; 
      }
      else

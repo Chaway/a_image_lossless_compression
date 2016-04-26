@@ -1,2 +1,2 @@
-gcc -g compare.c -o compare
 make clean;make
+gcc -o compare compare.c

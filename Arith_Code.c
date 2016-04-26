@@ -6,7 +6,7 @@
 //#define m 21
 
 
-static unsigned char symbol_num;
+static unsigned short symbol_num;
 static unsigned char Symbols[256];     // variety  number of  symbols
 static unsigned char buffer;
 static unsigned long int  mMASK;
@@ -205,7 +205,7 @@ int arith_code(char * args,FILE* fpo_in)
   }
 
   //fprintf(fs, "%d\n",symbol_num);
-  fwrite(&symbol_num,1,1,fpo);
+  fwrite(&symbol_num,sizeof(symbol_num),1,fpo);
   code_length ++;
   for (int i = 0; i < symbol_num; i++)
   {

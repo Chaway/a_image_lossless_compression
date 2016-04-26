@@ -5,7 +5,7 @@
 //#define m 21
 
 FILE * fp , *fpo;
-static unsigned char  symbol_num; // variety  number of  symbols
+static unsigned short symbol_num; // variety  number of  symbols
 static char buffer;
 static unsigned long int  t;
 static unsigned char bits_in_buffer; //number of bits in buffer to be read into t;
@@ -80,7 +80,7 @@ void arith_decode(char* args,FILE * fp_in)
   // }
   printf("arithmetic decode start ..\n");
   fread(&symbol_num,sizeof(symbol_num),1,fp); //get the number of varity od symbols
- // printf("symbol_num = %x\n" , symbol_num);
+  //printf("symbol_num = %x\n" , symbol_num);
 
   //initialize
   unsigned char symbols[symbol_num + 1];
@@ -89,7 +89,7 @@ void arith_decode(char* args,FILE * fp_in)
   {
      //fscanf(fs,"%d %d", &symbols[i] , &Count[i - 1]);
     fread(&symbols[i],sizeof(symbols[i]),1,fp);
-    ///printf("symbols[%d] = %x\n",i ,symbols[i]);
+   /// printf("symbols[%d] = %x\n",i ,symbols[i]);
     /// printf("number %d symbol is (ASCII value =
     fread(&Count[i-1],sizeof(Count[i-1]),1,fp);
     ///printf("Count[%d] = %x\n",i - 1,Count[i-1]);
@@ -107,9 +107,10 @@ void arith_decode(char* args,FILE * fp_in)
   }
 
   int num_wait_decode = Cum_count[symbol_num];
-
+  //printf("num_wait_decode = %d\n",num_wait_decode);
 
   m = (int)(log(Cum_count[symbol_num])/log(2)) + 1 + 2; 
+  printf("m = %d\n",m);
   mMASK = (1 << m) - 1;
   norMASK = 1 << (m-1);
 
@@ -120,7 +121,7 @@ void arith_decode(char* args,FILE * fp_in)
       get_bit_from_buffer();
   }
 
- /// printf("t = %ld\n",t);
+ 
   unsigned long int l = 0;
   unsigned long int u = mMASK;
   ///printf("u = %ld ,l = %ld , t = %ld\n",u,l,t);
