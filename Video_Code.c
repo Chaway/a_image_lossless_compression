@@ -45,6 +45,7 @@ void main(int argc, char *args[])
      		//printf("image = %x\n",image[i][j]); 
      	}
     fclose(fpi);
+    printf("Size of origin file is %d bytes\n",num_pixels);
     printf("encode start ...\n");
     prediction1();
     prediction2();

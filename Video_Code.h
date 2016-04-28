@@ -2,7 +2,7 @@
 #define VIDEO_CODE_H
 #include <stdio.h>
 #include <stdlib.h>
-#include "predictions.h"
+#include "predictors.h"
 
 
 #define rows 512

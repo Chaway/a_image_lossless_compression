@@ -1,19 +1,19 @@
 #include "transfer.h"
 
-unsigned char getT(unsigned char pixels_value)
+int getT(int pre_value)
 {        
-  if(pixels_value -  min > max - pixels_value)
+  if(pre_value -  min > max - pre_value)
        {
-           return max - pixels_value;
+           return max - pre_value;
        }
     else
        {
-           return pixels_value - min;
+           return pre_value - min;
        }
 }
 
 
-unsigned char transfer(unsigned char T_pre, int dif)
+unsigned char transfer(int T_pre, int dif)
 {
    unsigned char temp;
    if(dif < 0 && dif >= -T_pre)
@@ -31,12 +31,12 @@ unsigned char transfer(unsigned char T_pre, int dif)
    return temp;
 }
 
-int intransfer(unsigned char T,unsigned char dif,unsigned char pixels_value)
+int intransfer(int T,unsigned char dif,int pre_value)
 {
 
   if (dif > 2*T)
   {
-      if(pixels_value > (max + min)/2)
+      if(pre_value > (max + min)/2)
       {
         return T - dif;
       }
