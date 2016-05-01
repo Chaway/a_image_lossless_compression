@@ -167,9 +167,9 @@ void arith_decode(char* args,FILE * fp_in)
                {
                  //rescale l and u
                  //int index_of_sym = get_current_symbol(wait_for_encode);
-                 int k = 1;
+                 int k = 0;
                  ///printf("u = %ld ,l = %ld , t = %ld\n",u,l,t);
-                 while((((t - l + 1)*Cum_count[symbol_num]))/(u - l + 1.0) > Cum_count[k])
+                 while((((t - l + 1)*Cum_count[symbol_num] - 1))/(u - l + 1) >= Cum_count[k])
                  {
                    k ++;
                  }
